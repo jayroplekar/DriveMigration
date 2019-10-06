@@ -200,7 +200,7 @@ public class RecordActivity extends AppCompatActivity {
 
         File sampleDir = Environment.getExternalStorageDirectory();
         try {
-            audiofile = File.createTempFile("sound", ".3gp", sampleDir);
+            audiofile = File.createTempFile("sound", ".mp4", sampleDir);
         } catch (IOException e) {
             Log.e(TAG, "sdcard access error");
             e.printStackTrace();
@@ -208,8 +208,8 @@ public class RecordActivity extends AppCompatActivity {
         }
         recorder = new MediaRecorder();
         recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+        recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+        recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
         recorder.setOutputFile(audiofile.getAbsolutePath());
         recorder.prepare();
         recorder.start();
